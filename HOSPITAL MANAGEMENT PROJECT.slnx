@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="ApiGateway/ApiGateway.csproj" />
+  <Project Path="Auth Service/Auth Service.csproj" />
+  <Project Path="Doctor &amp; Staff Service/Doctor &amp; Staff Service.csproj" />
+  <Project Path="Medical Records Service/Medical Records Service.csproj" />
+  <Project Path="Operations Service/Operations Service.csproj" />
+  <Project Path="Patient Service/Patient Service.csproj" />
+</Solution>

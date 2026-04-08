@@ -1,0 +1,21 @@
+# Visual Studio temporary files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+bin/
+obj/
+Debug/
+Release/
+
+# Environment files
+.env
+
+# Node.js dependencies (if applicable)
+node_modules/
+
+# Logs
+*.log
