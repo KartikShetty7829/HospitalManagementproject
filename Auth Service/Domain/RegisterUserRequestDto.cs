@@ -5,6 +5,7 @@ namespace Auth_Service.Domain
 {
     public class RegisterUserCommand : IRequest<RegisterUserResponseDto>
     {
+        //
         [Required, MinLength(3)]
         public required string Username { get; set; }
 
