@@ -10,9 +10,9 @@ namespace Auth_Service.Business_handlers
     public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, RegisterUserResponseDto>
     {
         private readonly IAuthRepository _authRepository;
-        private readonly ILogger _logger;
+        private readonly ILogger<RegisterUserHandler> _logger;
 
-        public RegisterUserHandler(IAuthRepository authRepository, ILogger logger)
+        public RegisterUserHandler(IAuthRepository authRepository, ILogger<RegisterUserHandler> logger)
         {
             _authRepository = authRepository;
             _logger = logger;
@@ -22,14 +22,14 @@ namespace Auth_Service.Business_handlers
         {
             try
             {
-                _logger.Information("RegisterUserHandler started for Username: {Username}, Email: {Email}",
+                _logger.LogInformation("RegisterUserHandler started for Username: {Username}, Email: {Email}",
                     request.Username, request.Email);
 
                 // Check duplicates
                 var existingByUsername = await _authRepository.GetUserByUsernameAsync(request.Username);
                 if (existingByUsername != null)
                 {
-                    _logger.Warning("Duplicate registration attempt for Username: {Username}", request.Username);
+                    _logger.LogWarning("Duplicate registration attempt for Username: {Username}", request.Username);
                     return new RegisterUserResponseDto
                     {
                         RoleName = string.Empty,
@@ -40,7 +40,7 @@ namespace Auth_Service.Business_handlers
                 var existingByEmail = await _authRepository.GetUserByEmailAsync(request.Email);
                 if (existingByEmail != null)
                 {
-                    _logger.Warning("Duplicate registration attempt for Email: {Email}", request.Email);
+                    _logger.LogWarning("Duplicate registration attempt for Email: {Email}", request.Email);
                     return new RegisterUserResponseDto
                     {
                         RoleName = string.Empty,
@@ -52,7 +52,7 @@ namespace Auth_Service.Business_handlers
                 var role = await _authRepository.GetRoleByNameAsync(request.RoleName);
                 if (role == null)
                 {
-                    _logger.Warning("Role {RoleName} not found", request.RoleName);
+                    _logger.LogWarning("Role {RoleName} not found", request.RoleName);
                     return new RegisterUserResponseDto
                     {
                         RoleName = string.Empty,
@@ -72,7 +72,7 @@ namespace Auth_Service.Business_handlers
 
                 await _authRepository.AddUserAsync(user);
 
-                _logger.Information("User {Username} registered successfully with Role {RoleName}",
+                _logger.LogInformation("User {Username} registered successfully with Role {RoleName}",
                     user.Username, role.RoleName);
 
                 return new RegisterUserResponseDto
@@ -83,7 +83,7 @@ namespace Auth_Service.Business_handlers
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error occurred while registering user {Username}", request.Username);
+                _logger.LogError(ex, "Error occurred while registering user {Username}", request.Username);
 
                 return new RegisterUserResponseDto
                 {

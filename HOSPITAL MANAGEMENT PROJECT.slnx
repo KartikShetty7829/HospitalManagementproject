@@ -8,6 +8,7 @@
   </Folder>
   <Project Path="ApiGateway/ApiGateway.csproj" />
   <Project Path="Auth Service/Auth Service.csproj" />
+  <Project Path="AuthServiceTesting/AuthServiceTesting.csproj" Id="755f9b0d-3343-49bb-87e7-5ae6df15caf4" />
   <Project Path="Doctor &amp; Staff Service/Doctor &amp; Staff Service.csproj" />
   <Project Path="Medical Records Service/Medical Records Service.csproj" />
   <Project Path="Operations Service/Operations Service.csproj" />
