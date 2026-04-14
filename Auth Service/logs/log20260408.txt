@@ -1,0 +1,238 @@
+2026-04-08 19:50:55.863 +05:30 [INF] User profile is available. Using 'C:\Users\kartik\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-08 19:50:58.197 +05:30 [INF] Now listening on: http://localhost:5001
+2026-04-08 19:50:58.432 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-08 19:50:59.173 +05:30 [INF] Hosting environment: Development
+2026-04-08 19:50:59.248 +05:30 [INF] Content root path: D:\HMS\HOSPITAL MANAGEMENT PROJECT\HOSPITAL MANAGEMENT PROJECT\Auth Service
+2026-04-08 19:51:09.892 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-08 19:51:09.893 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5001/_vs/browserLink - null null
+2026-04-08 19:51:10.078 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 16509 application/javascript; charset=utf-8 210.0587ms
+2026-04-08 19:51:10.624 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 738.5376ms
+2026-04-08 19:51:11.133 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/v1/swagger.json - null null
+2026-04-08 19:51:11.249 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 116.661ms
+2026-04-08 19:52:04.554 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5001/auth/register - application/json 122
+2026-04-08 19:52:12.249 +05:30 [INF] Executing endpoint 'Auth_Service.Controllers.AuthController.Register (Auth Service)'
+2026-04-08 19:52:12.500 +05:30 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Auth_Service.Domain.RegisterUserCommand) on controller Auth_Service.Controllers.AuthController (Auth Service).
+2026-04-08 19:52:16.723 +05:30 [INF] RegisterUserHandler started for Username: alex_92, Email: alex.morgan92@example.com
+2026-04-08 19:52:27.424 +05:30 [INF] Executed DbCommand (1,927ms) [Parameters=[@username='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[Email], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[RoleId], [r].[RoleName]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Username] = @username
+2026-04-08 19:52:27.595 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@email='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[Email], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[RoleId], [r].[RoleName]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @email
+2026-04-08 19:52:27.642 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@roleName='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleId], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleName] = @roleName
+2026-04-08 19:52:28.393 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 100), @p2='?' (Size = 255), @p3='?' (DbType = Int32), @p4='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [PasswordHash], [RoleId], [Username])
+OUTPUT INSERTED.[UserId]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2026-04-08 19:52:28.494 +05:30 [INF] User alex_92 registered successfully with Role Doctor
+2026-04-08 19:52:28.541 +05:30 [INF] Executing OkObjectResult, writing value of type 'Auth_Service.Domain.RegisterUserResponseDto'.
+2026-04-08 19:52:28.574 +05:30 [INF] Executed action Auth_Service.Controllers.AuthController.Register (Auth Service) in 16057.099ms
+2026-04-08 19:52:28.583 +05:30 [INF] Executed endpoint 'Auth_Service.Controllers.AuthController.Register (Auth Service)'
+2026-04-08 19:52:28.629 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5001/auth/register - 200 null application/json; charset=utf-8 24075.462ms
+2026-04-08 19:52:40.476 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5001/auth/register - application/json 122
+2026-04-08 19:52:40.663 +05:30 [INF] Executing endpoint 'Auth_Service.Controllers.AuthController.Register (Auth Service)'
+2026-04-08 19:52:40.717 +05:30 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Auth_Service.Domain.RegisterUserCommand) on controller Auth_Service.Controllers.AuthController (Auth Service).
+2026-04-08 19:52:40.850 +05:30 [INF] RegisterUserHandler started for Username: alex_92, Email: alex.morgan92@example.com
+2026-04-08 19:52:40.911 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@username='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[Email], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[RoleId], [r].[RoleName]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Username] = @username
+2026-04-08 19:52:40.948 +05:30 [WRN] Duplicate registration attempt for Username: alex_92
+2026-04-08 19:52:40.958 +05:30 [INF] Executing ConflictObjectResult, writing value of type 'Auth_Service.Domain.RegisterUserResponseDto'.
+2026-04-08 19:52:40.961 +05:30 [INF] Executed action Auth_Service.Controllers.AuthController.Register (Auth Service) in 197.824ms
+2026-04-08 19:52:40.966 +05:30 [INF] Executed endpoint 'Auth_Service.Controllers.AuthController.Register (Auth Service)'
+2026-04-08 19:52:40.979 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5001/auth/register - 409 null application/json; charset=utf-8 501.7778ms
+2026-04-08 19:52:59.063 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5001/auth/register - application/json 121
+2026-04-08 19:52:59.290 +05:30 [INF] Executing endpoint 'Auth_Service.Controllers.AuthController.Register (Auth Service)'
+2026-04-08 19:52:59.294 +05:30 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Auth_Service.Domain.RegisterUserCommand) on controller Auth_Service.Controllers.AuthController (Auth Service).
+2026-04-08 19:52:59.323 +05:30 [INF] RegisterUserHandler started for Username: sophia_dev, Email: sophia.dev@example.com
+2026-04-08 19:52:59.721 +05:30 [INF] Executed DbCommand (49ms) [Parameters=[@username='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[Email], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[RoleId], [r].[RoleName]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Username] = @username
+2026-04-08 19:52:59.754 +05:30 [INF] Executed DbCommand (25ms) [Parameters=[@email='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[Email], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[RoleId], [r].[RoleName]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Email] = @email
+2026-04-08 19:52:59.777 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@roleName='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleId], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleName] = @roleName
+2026-04-08 19:52:59.895 +05:30 [INF] Executed DbCommand (37ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 100), @p2='?' (Size = 255), @p3='?' (DbType = Int32), @p4='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([CreatedAt], [Email], [PasswordHash], [RoleId], [Username])
+OUTPUT INSERTED.[UserId]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2026-04-08 19:52:59.924 +05:30 [INF] User sophia_dev registered successfully with Role Admin
+2026-04-08 19:52:59.960 +05:30 [INF] Executing OkObjectResult, writing value of type 'Auth_Service.Domain.RegisterUserResponseDto'.
+2026-04-08 19:52:59.963 +05:30 [INF] Executed action Auth_Service.Controllers.AuthController.Register (Auth Service) in 658.2692ms
+2026-04-08 19:52:59.979 +05:30 [INF] Executed endpoint 'Auth_Service.Controllers.AuthController.Register (Auth Service)'
+2026-04-08 19:52:59.992 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5001/auth/register - 200 null application/json; charset=utf-8 926.6784ms
+2026-04-08 19:54:22.009 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5001/auth/login - application/json 57
+2026-04-08 19:54:22.241 +05:30 [INF] Executing endpoint 'Auth_Service.Controllers.AuthController.Login (Auth Service)'
+2026-04-08 19:54:22.308 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Auth_Service.Domain.LoginUserCommand) on controller Auth_Service.Controllers.AuthController (Auth Service).
+2026-04-08 19:54:22.378 +05:30 [INF] LoginUserHandler started for Username: alex_92
+2026-04-08 19:54:22.452 +05:30 [INF] Executed DbCommand (58ms) [Parameters=[@username='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[Email], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[RoleId], [r].[RoleName]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Username] = @username
+2026-04-08 19:54:22.505 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@roleId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleId], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleId] = @roleId
+2026-04-08 19:54:22.956 +05:30 [INF] Error occurred while logging in user alex_92
+System.ArgumentOutOfRangeException: IDX10720: Unable to create KeyedHashAlgorithm for algorithm 'HS256', the key size must be greater than: '256' bits, key has '192' bits. (Parameter 'keyBytes')
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.ValidateKeySize(Byte[] keyBytes, String algorithm, Int32 expectedNumberOfBytes)
+   at Microsoft.IdentityModel.Tokens.CryptoProviderFactory.CreateKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.CreateKeyedHashAlgorithm()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.CreateInstance()
+   at Microsoft.IdentityModel.Tokens.DisposableObjectPool`1.Allocate()
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.GetKeyedHashAlgorithm(Byte[] keyBytes, String algorithm)
+   at Microsoft.IdentityModel.Tokens.SymmetricSignatureProvider.Sign(Byte[] input)
+   at Microsoft.IdentityModel.JsonWebTokens.JwtTokenUtilities.CreateEncodedSignature(String input, SigningCredentials signingCredentials)
+   at System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler.WriteToken(SecurityToken token)
+   at Auth_Service.Interfaces.JwtService.GenerateJwtToken(Users user, String role) in D:\HMS\HOSPITAL MANAGEMENT PROJECT\HOSPITAL MANAGEMENT PROJECT\Auth Service\Interfaces\IJwtService.cs:line 51
+   at Auth_Service.Business_handlers.LoginUserHandler.Handle(LoginUserCommand request, CancellationToken cancellationToken) in D:\HMS\HOSPITAL MANAGEMENT PROJECT\HOSPITAL MANAGEMENT PROJECT\Auth Service\Business handlers\LoginUserHandler.cs:line 67
+2026-04-08 19:54:23.102 +05:30 [INF] Executing UnauthorizedObjectResult, writing value of type 'Auth_Service.Domain.LoginUserResponseDto'.
+2026-04-08 19:54:23.157 +05:30 [INF] Executed action Auth_Service.Controllers.AuthController.Login (Auth Service) in 844.3395ms
+2026-04-08 19:54:23.162 +05:30 [INF] Executed endpoint 'Auth_Service.Controllers.AuthController.Login (Auth Service)'
+2026-04-08 19:54:23.172 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5001/auth/login - 401 null application/json; charset=utf-8 1163.0193ms
+2026-04-08 19:57:51.274 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5001/auth/login - application/json 57
+2026-04-08 19:57:51.418 +05:30 [INF] Executing endpoint 'Auth_Service.Controllers.AuthController.Login (Auth Service)'
+2026-04-08 19:57:51.469 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Auth_Service.Domain.LoginUserCommand) on controller Auth_Service.Controllers.AuthController (Auth Service).
+2026-04-08 19:57:51.487 +05:30 [INF] LoginUserHandler started for Username: alex_92
+2026-04-08 19:57:55.973 +05:30 [INF] Executed DbCommand (212ms) [Parameters=[@username='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[Email], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[RoleId], [r].[RoleName]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Username] = @username
+2026-04-08 19:58:25.215 +05:30 [INF] Executed DbCommand (102ms) [Parameters=[@roleId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleId], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleId] = @roleId
+2026-04-08 20:00:44.778 +05:30 [INF] User profile is available. Using 'C:\Users\kartik\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-08 20:00:46.286 +05:30 [INF] Now listening on: http://localhost:5001
+2026-04-08 20:00:47.762 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-08 20:00:49.478 +05:30 [INF] Hosting environment: Development
+2026-04-08 20:00:49.484 +05:30 [INF] Content root path: D:\HMS\HOSPITAL MANAGEMENT PROJECT\HOSPITAL MANAGEMENT PROJECT\Auth Service
+2026-04-08 20:00:51.874 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5001/_vs/browserLink - null null
+2026-04-08 20:00:51.873 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-08 20:00:52.777 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 16509 application/javascript; charset=utf-8 913.1908ms
+2026-04-08 20:00:52.789 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 927.2448ms
+2026-04-08 20:00:54.338 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/v1/swagger.json - null null
+2026-04-08 20:00:54.413 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 77.6165ms
+2026-04-08 20:01:40.452 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5001/auth/login - application/json 57
+2026-04-08 20:01:41.122 +05:30 [INF] Executing endpoint 'Auth_Service.Controllers.AuthController.Login (Auth Service)'
+2026-04-08 20:01:41.324 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Auth_Service.Domain.LoginUserCommand) on controller Auth_Service.Controllers.AuthController (Auth Service).
+2026-04-08 20:01:42.473 +05:30 [INF] LoginUserHandler started for Username: alex_92
+2026-04-08 20:01:49.790 +05:30 [INF] Executed DbCommand (383ms) [Parameters=[@username='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[Email], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[RoleId], [r].[RoleName]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Username] = @username
+2026-04-08 20:01:50.585 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@roleId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleId], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleId] = @roleId
+2026-04-08 20:01:50.690 +05:30 [INF] User alex_92 logged in successfully with Role Doctor
+2026-04-08 20:01:50.757 +05:30 [INF] Executing OkObjectResult, writing value of type 'Auth_Service.Domain.LoginUserResponseDto'.
+2026-04-08 20:01:50.804 +05:30 [INF] Executed action Auth_Service.Controllers.AuthController.Login (Auth Service) in 9415.5509ms
+2026-04-08 20:01:50.812 +05:30 [INF] Executed endpoint 'Auth_Service.Controllers.AuthController.Login (Auth Service)'
+2026-04-08 20:01:50.903 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5001/auth/login - 200 null application/json; charset=utf-8 10450.1487ms
+2026-04-08 20:01:55.828 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5001/auth/login - application/json 57
+2026-04-08 20:01:55.938 +05:30 [INF] Executing endpoint 'Auth_Service.Controllers.AuthController.Login (Auth Service)'
+2026-04-08 20:01:55.962 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Auth_Service.Domain.LoginUserCommand) on controller Auth_Service.Controllers.AuthController (Auth Service).
+2026-04-08 20:01:55.971 +05:30 [INF] LoginUserHandler started for Username: alex_92
+2026-04-08 20:01:56.034 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@username='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[Email], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[RoleId], [r].[RoleName]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Username] = @username
+2026-04-08 20:01:56.049 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@roleId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleId], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleId] = @roleId
+2026-04-08 20:01:56.067 +05:30 [INF] User alex_92 logged in successfully with Role Doctor
+2026-04-08 20:01:56.072 +05:30 [INF] Executing OkObjectResult, writing value of type 'Auth_Service.Domain.LoginUserResponseDto'.
+2026-04-08 20:01:56.084 +05:30 [INF] Executed action Auth_Service.Controllers.AuthController.Login (Auth Service) in 117.4468ms
+2026-04-08 20:01:56.103 +05:30 [INF] Executed endpoint 'Auth_Service.Controllers.AuthController.Login (Auth Service)'
+2026-04-08 20:01:56.119 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5001/auth/login - 200 null application/json; charset=utf-8 278.2429ms
+2026-04-08 20:11:49.207 +05:30 [INF] User profile is available. Using 'C:\Users\kartik\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-08 20:11:50.700 +05:30 [INF] Now listening on: http://localhost:5001
+2026-04-08 20:11:50.942 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-08 20:11:52.311 +05:30 [INF] Hosting environment: Development
+2026-04-08 20:11:52.424 +05:30 [INF] Content root path: D:\HMS\HOSPITAL MANAGEMENT PROJECT\HOSPITAL MANAGEMENT PROJECT\Auth Service
+2026-04-08 20:11:57.027 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5001/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-08 20:11:57.026 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5001/_vs/browserLink - null null
+2026-04-08 20:11:57.310 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5001/_framework/aspnetcore-browser-refresh.js - 200 16509 application/javascript; charset=utf-8 288.18ms
+2026-04-08 20:11:57.772 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 752.4272ms
+2026-04-08 20:11:59.462 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5001/swagger/v1/swagger.json - null null
+2026-04-08 20:11:59.524 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 62.8063ms
+2026-04-08 20:13:20.645 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5001/auth/login - application/json 57
+2026-04-08 20:13:21.535 +05:30 [INF] Executing endpoint 'Auth_Service.Controllers.AuthController.Login (Auth Service)'
+2026-04-08 20:13:21.728 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Auth_Service.Domain.LoginUserCommand) on controller Auth_Service.Controllers.AuthController (Auth Service).
+2026-04-08 20:13:22.876 +05:30 [INF] LoginUserHandler started for Username: alex_92
+2026-04-08 20:13:32.639 +05:30 [INF] Executed DbCommand (265ms) [Parameters=[@username='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[Email], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[RoleId], [r].[RoleName]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Username] = @username
+2026-04-08 20:13:33.276 +05:30 [INF] Executed DbCommand (67ms) [Parameters=[@roleId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleId], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleId] = @roleId
+2026-04-08 20:13:33.543 +05:30 [INF] User alex_92 logged in successfully with Role Doctor
+2026-04-08 20:13:33.616 +05:30 [INF] Executing OkObjectResult, writing value of type 'Auth_Service.Domain.LoginUserResponseDto'.
+2026-04-08 20:13:34.066 +05:30 [INF] Executed action Auth_Service.Controllers.AuthController.Login (Auth Service) in 12289.3218ms
+2026-04-08 20:13:34.075 +05:30 [INF] Executed endpoint 'Auth_Service.Controllers.AuthController.Login (Auth Service)'
+2026-04-08 20:13:34.214 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5001/auth/login - 200 null application/json; charset=utf-8 13569.0191ms
+2026-04-08 20:13:56.274 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5001/auth/login - application/json 57
+2026-04-08 20:13:56.339 +05:30 [INF] Executing endpoint 'Auth_Service.Controllers.AuthController.Login (Auth Service)'
+2026-04-08 20:13:56.355 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Auth_Service.Domain.LoginUserCommand) on controller Auth_Service.Controllers.AuthController (Auth Service).
+2026-04-08 20:13:56.402 +05:30 [INF] LoginUserHandler started for Username: alex_92
+2026-04-08 20:13:56.560 +05:30 [INF] Executed DbCommand (38ms) [Parameters=[@username='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[Email], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[RoleId], [r].[RoleName]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Username] = @username
+2026-04-08 20:13:56.610 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@roleId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleId], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleId] = @roleId
+2026-04-08 20:13:56.637 +05:30 [INF] User alex_92 logged in successfully with Role Doctor
+2026-04-08 20:13:56.643 +05:30 [INF] Executing OkObjectResult, writing value of type 'Auth_Service.Domain.LoginUserResponseDto'.
+2026-04-08 20:13:56.652 +05:30 [INF] Executed action Auth_Service.Controllers.AuthController.Login (Auth Service) in 275.4945ms
+2026-04-08 20:13:56.658 +05:30 [INF] Executed endpoint 'Auth_Service.Controllers.AuthController.Login (Auth Service)'
+2026-04-08 20:13:56.670 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5001/auth/login - 200 null application/json; charset=utf-8 425.9295ms
+2026-04-08 20:14:45.582 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5001/auth/login - application/json 64
+2026-04-08 20:14:45.700 +05:30 [INF] Executing endpoint 'Auth_Service.Controllers.AuthController.Login (Auth Service)'
+2026-04-08 20:14:45.834 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Auth_Service.Domain.LoginUserCommand) on controller Auth_Service.Controllers.AuthController (Auth Service).
+2026-04-08 20:14:45.908 +05:30 [INF] LoginUserHandler started for Username: doctor1
+2026-04-08 20:14:46.433 +05:30 [INF] Executed DbCommand (75ms) [Parameters=[@username='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[Email], [u].[PasswordHash], [u].[RoleId], [u].[Username], [r].[RoleId], [r].[RoleName]
+FROM [Users] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[RoleId]
+WHERE [u].[Username] = @username
+2026-04-08 20:14:46.467 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@roleId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[RoleId], [r].[RoleName]
+FROM [Roles] AS [r]
+WHERE [r].[RoleId] = @roleId
+2026-04-08 20:14:46.501 +05:30 [INF] User doctor1 logged in successfully with Role Doctor
+2026-04-08 20:14:46.515 +05:30 [INF] Executing OkObjectResult, writing value of type 'Auth_Service.Domain.LoginUserResponseDto'.
+2026-04-08 20:14:46.546 +05:30 [INF] Executed action Auth_Service.Controllers.AuthController.Login (Auth Service) in 667.608ms
+2026-04-08 20:14:46.645 +05:30 [INF] Executed endpoint 'Auth_Service.Controllers.AuthController.Login (Auth Service)'
+2026-04-08 20:14:46.650 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5001/auth/login - 200 null application/json; charset=utf-8 1081.4296ms

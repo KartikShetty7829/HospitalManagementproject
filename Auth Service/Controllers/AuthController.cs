@@ -43,5 +43,22 @@ namespace Auth_Service.Controllers
             return Ok(response); // 200 Success
         }
 
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
+        {
+            if (command == null)
+            {
+                return BadRequest(new { Message = "Invalid request payload." });
+            }
+
+            var result = await _mediator.Send(command);
+
+            if (string.IsNullOrEmpty(result.Token))
+            {
+                return Unauthorized(result);
+            }
+
+            return Ok(result);
+        }
     }
 }
