@@ -1,26 +1,32 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using MMLib.SwaggerForOcelot;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Load Ocelot configuration
-builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+// Load Ocelot configuration depending on environment
+if (builder.Environment.IsDevelopment())
+{
+    builder.Configuration.AddJsonFile("ocelot.local.json", optional: false, reloadOnChange: true);
+}
+else
+{
+    builder.Configuration.AddJsonFile("ocelot.azure.json", optional: false, reloadOnChange: true);
+}
 
-// Register Ocelot
+// Register Ocelot + SwaggerForOcelot
 builder.Services.AddOcelot();
-
-// Optional: Swagger for Gateway itself
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerForOcelot(builder.Configuration);
 
 var app = builder.Build();
 
-// Swagger UI for Gateway (optional)
-if (app.Environment.IsDevelopment())
+// Swagger aggregation (Gateway only)
+app.UseSwaggerForOcelotUI(opt =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    opt.PathToSwaggerGenerator = "/swagger/docs";
+    // No RoutePrefix here — SwaggerForOcelotUIOptions doesn’t support it
+    // By default, the aggregated UI will be available at /swagger
+});
 
 // Ocelot middleware
 await app.UseOcelot();

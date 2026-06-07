@@ -1,0 +1,119 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/auth/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "timesheet-management-app-hub-c8hqf3d9eggqcqgq.southindia-01.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/auth/{everything}",
+      "UpstreamHttpMethod": [ "POST", "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/patients/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "timesheet-management-app-hub-c8hqf3d9eggqcqgq.southindia-01.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/patients/{everything}",
+      "UpstreamHttpMethod": [ "POST", "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/doctors/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "timesheet-management-app-hub-c8hqf3d9eggqcqgq.southindia-01.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/doctors/{everything}",
+      "UpstreamHttpMethod": [ "POST", "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/records/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "timesheet-management-app-hub-c8hqf3d9eggqcqgq.southindia-01.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/records/{everything}",
+      "UpstreamHttpMethod": [ "POST", "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/operations/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "timesheet-management-app-hub-c8hqf3d9eggqcqgq.southindia-01.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/operations/{everything}",
+      "UpstreamHttpMethod": [ "POST", "GET" ]
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "auth",
+      "Config": [
+        {
+          "Name": "Auth Service",
+          "Version": "v1",
+          "Url": "https://timesheet-management-app-hub-c8hqf3d9eggqcqgq.southindia-01.azurewebsites.net/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "patients",
+      "Config": [
+        {
+          "Name": "Patients Service",
+          "Version": "v1",
+          "Url": "https://timesheet-management-app-hub-c8hqf3d9eggqcqgq.southindia-01.azurewebsites.net/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "doctors",
+      "Config": [
+        {
+          "Name": "Doctors Service",
+          "Version": "v1",
+          "Url": "https://timesheet-management-app-hub-c8hqf3d9eggqcqgq.southindia-01.azurewebsites.net/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "records",
+      "Config": [
+        {
+          "Name": "Records Service",
+          "Version": "v1",
+          "Url": "https://timesheet-management-app-hub-c8hqf3d9eggqcqgq.southindia-01.azurewebsites.net/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "operations",
+      "Config": [
+        {
+          "Name": "Operations Service",
+          "Version": "v1",
+          "Url": "https://timesheet-management-app-hub-c8hqf3d9eggqcqgq.southindia-01.azurewebsites.net/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://gateway-service.azurewebsites.net"
+  }
+}
