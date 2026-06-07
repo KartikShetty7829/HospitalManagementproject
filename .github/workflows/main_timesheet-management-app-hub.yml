@@ -13,53 +13,65 @@ jobs:
   build:
     runs-on: windows-latest
     permissions:
-      contents: read #This is required for actions/checkout
+      contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up .NET Core
+      - name: 🔧 Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.x'
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      # Build each project separately
+      - name: 🏗️ Build Auth Service
+        run: dotnet publish "./Auth Service/Auth Service.csproj" -c Release -o ./publish/AuthService
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+      - name: 🏗️ Build Doctor & Staff Service
+        run: dotnet publish "./Doctor & Staff Service/Doctor & Staff Service.csproj" -c Release -o "./publish/DoctorService"
 
-      - name: Upload artifact for deployment job
+      - name: 🏗️ Build Medical Records Service
+        run: dotnet publish "./Medical Records Service/Medical Records Service.csproj" -c Release -o "./publish/RecordsService"
+
+      - name: 🏗️ Build Operations Service
+        run: dotnet publish "./Operations Service/Operations Service.csproj" -c Release -o "./publish/OperationsService"
+
+      - name: 🏗️ Build Patient Service
+        run: dotnet publish "./Patient Service/Patient Service.csproj" -c Release -o "./publish/PatientService"
+
+      - name: 🏗️ Build API Gateway
+        run: dotnet publish "./ApiGateway/ApiGateway.csproj" -c Release -o ./publish/ApiGateway
+
+      # Upload artifacts for deployment
+      - name: 📤 Upload Gateway artifact
         uses: actions/upload-artifact@v4
         with:
-          name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          name: gateway-app
+          path: ./publish/ApiGateway
 
   deploy:
     runs-on: windows-latest
     needs: build
     permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
+      id-token: write
+      contents: read
 
     steps:
-      - name: Download artifact from build job
+      - name: 📥 Download Gateway artifact
         uses: actions/download-artifact@v4
         with:
-          name: .net-app
-      
-      - name: Login to Azure
+          name: gateway-app
+          path: ./publish/ApiGateway
+
+      - name: 🔐 Azure Login
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C9695AB271874E15A6EEC115FD438F81 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_BE1443999ACE4ACEA549602B102DB2A9 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B2648C0C7CF543DE8608D81FDADE075F }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
+      - name: 🚀 Deploy Gateway to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'timesheet-management-app-hub'
           slot-name: 'Production'
-          package: .
-          
+          package: ./publish/ApiGateway
