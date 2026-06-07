@@ -7,4 +7,8 @@
     <RootNamespace>Patient_Service</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 </Project>

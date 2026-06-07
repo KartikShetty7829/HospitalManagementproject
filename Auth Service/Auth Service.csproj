@@ -8,11 +8,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mappers\" />
-    <Folder Include="Middlewares\" />
-    <Folder Include="CustomExceptions\" />
-    <Folder Include="Services\" />
-    <Folder Include="TokenService\" />
+    <Compile Remove="CustomExceptions\**" />
+    <Compile Remove="Mappers\**" />
+    <Compile Remove="Middlewares\**" />
+    <Compile Remove="Services\**" />
+    <Compile Remove="TokenService\**" />
+    <Content Remove="CustomExceptions\**" />
+    <Content Remove="Mappers\**" />
+    <Content Remove="Middlewares\**" />
+    <Content Remove="Services\**" />
+    <Content Remove="TokenService\**" />
+    <EmbeddedResource Remove="CustomExceptions\**" />
+    <EmbeddedResource Remove="Mappers\**" />
+    <EmbeddedResource Remove="Middlewares\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <EmbeddedResource Remove="TokenService\**" />
+    <None Remove="CustomExceptions\**" />
+    <None Remove="Mappers\**" />
+    <None Remove="Middlewares\**" />
+    <None Remove="Services\**" />
+    <None Remove="TokenService\**" />
   </ItemGroup>
 
   <ItemGroup>
